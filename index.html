@@ -166,7 +166,16 @@
           data.items.slice(0, 5).forEach((item) => {
             const card = document.createElement("div");
             card.className =
-              "bg-gray-800 p-5 rounded-xl shadow hover:shadow-lg transition duration-300 flex flex-col justify-between w-full max-w-sm";
+              "bg-gray-800 rounded-xl shadow hover:shadow-lg transition duration-300 flex flex-col w-full max-w-sm overflow-hidden";
+
+            // Extract first image from content or enclosure
+            let imgSrc = "";
+            if (item.enclosure && item.enclosure.link) {
+              imgSrc = item.enclosure.link;
+            } else {
+              const imgMatch = item.content.match(/<img[^>]+src="([^">]+)"/);
+              imgSrc = imgMatch ? imgMatch[1] : "";
+            }
 
             // Strip HTML tags and limit snippet
             const snippet =
@@ -174,9 +183,18 @@
               "...";
 
             card.innerHTML = `
-        <h3 class="text-xl font-semibold mb-2">${item.title}</h3>
-        <p class="text-gray-300 mb-4 flex-grow">${snippet}</p>
-        <a href="${item.link}" target="_blank" class="text-blue-400 font-medium hover:underline mt-auto">Read More</a>
+        ${
+          imgSrc
+            ? `<img src="${imgSrc}" alt="${item.title}" class="w-full h-48 object-cover">`
+            : ""
+        }
+        <div class="p-5 flex flex-col flex-grow">
+          <h3 class="text-xl font-semibold mb-2">${item.title}</h3>
+          <p class="text-gray-300 mb-4 flex-grow">${snippet}</p>
+          <a href="${
+            item.link
+          }" target="_blank" class="text-blue-400 font-medium hover:underline mt-auto">Read More</a>
+        </div>
       `;
 
             container.appendChild(card);
