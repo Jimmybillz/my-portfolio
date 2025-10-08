@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jimmy Billz | Portfolio</title>
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="bg-gray-950 text-gray-100 font-sans">
+    <!-- Navbar -->
+    <header
+      class="flex flex-col md:flex-row justify-between items-center p-5 bg-gray-900 shadow-md"
+    >
+      <h1 class="text-2xl font-bold text-white">JimmyBillz</h1>
+      <nav class="space-x-5 mt-3 md:mt-0">
+        <a href="#about" class="hover:text-blue-400">About</a>
+        <a href="#projects" class="hover:text-blue-400">Projects</a>
+        <a href="#contact" class="hover:text-blue-400">Contact</a>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section
+      class="flex flex-col items-center justify-center text-center min-h-[85vh] px-6"
+    >
+      <img
+        src="profile.jpg"
+        alt="Jimmy Billz"
+        class="w-32 h-32 md:w-40 md:h-40 rounded-full mb-6 border-4 border-blue-500 shadow-lg object-cover"
+      />
+      <h2 class="text-4xl md:text-6xl font-bold mb-3">
+        Hi, I'm <span class="text-blue-400">Wireshark</span>
+      </h2>
+      <p class="text-gray-400 text-lg max-w-2xl mb-6">
+        A DevOps & NodeOps engineer focused on automating infrastructure and
+        running reliable blockchain nodes.
+      </p>
+
+      <div class="flex space-x-5 mb-6">
+        <a
+          href="https://github.com/Jimmybillz"
+          target="_blank"
+          class="text-gray-300 hover:text-blue-400 text-2xl"
+        >
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/mubarak-jimoh-wireshark-199142210/"
+          target="_blank"
+          class="text-gray-300 hover:text-blue-400 text-2xl"
+        >
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a
+          href="https://x.com/jimmybillz"
+          target="_blank"
+          class="text-gray-300 hover:text-blue-400 text-2xl"
+        >
+          <i class="fa-brands fa-x-twitter"></i>
+        </a>
+      </div>
+
+      <a
+        href="#projects"
+        class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-medium"
+        >View My Work</a
+      >
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-20 px-6 max-w-4xl mx-auto text-center">
+      <h3 class="text-3xl font-bold mb-6">About Me</h3>
+      <p class="text-gray-400 leading-relaxed">
+        I'm passionate about DevOps, cloud automation, and blockchain
+        infrastructure. I enjoy setting up CI/CD pipelines, managing servers on
+        AWS, and deploying decentralized apps with reliability in mind.
+      </p>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="py-20 px-6 bg-gray-900">
+      <h3 class="text-3xl font-bold text-center mb-12">Projects</h3>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div
+          class="bg-gray-800 p-6 rounded-xl shadow hover:shadow-lg transition"
+        >
+          <h4 class="text-xl font-semibold mb-2">AWS EC2 Setup</h4>
+          <p class="text-gray-400 mb-4">
+            Deployed and secured EC2 instances for scalable web apps.
+          </p>
+          <a href="#" class="text-blue-400 hover:underline">View project →</a>
+        </div>
+
+        <div
+          class="bg-gray-800 p-6 rounded-xl shadow hover:shadow-lg transition"
+        >
+          <h4 class="text-xl font-semibold mb-2">Dockerized App</h4>
+          <p class="text-gray-400 mb-4">
+            Containerized Node.js app for faster and more consistent
+            deployments.
+          </p>
+          <a href="#" class="text-blue-400 hover:underline">View project →</a>
+        </div>
+
+        <div
+          class="bg-gray-800 p-6 rounded-xl shadow hover:shadow-lg transition"
+        >
+          <h4 class="text-xl font-semibold mb-2">Blockchain NodeOps</h4>
+          <p class="text-gray-400 mb-4">
+            Automated blockchain node setup using Ansible & Docker.
+          </p>
+          <a href="#" class="text-blue-400 hover:underline">View project →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-20 px-6 text-center">
+      <h3 class="text-3xl font-bold mb-6">Contact</h3>
+      <p class="text-gray-400 mb-4">
+        Let’s connect and build something great together.
+      </p>
+      <a
+        href="jimmybillz202@gmail.com"
+        class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-medium"
+        >Email Me</a
+      >
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-6 bg-gray-900 text-center text-gray-500 text-sm">
+      © <span id="year"></span> Jimmy Billz. All rights reserved.
+    </footer>
+
+    <!-- Font Awesome for Icons -->
+    <script
+      src="https://kit.fontawesome.com/a2b1e9f9e0.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="portfolio.js"></script>
+  </body>
+</html>
