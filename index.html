@@ -138,6 +138,58 @@
       </div>
     </section>
 
+    <!-- Medium Articles Section -->
+    <section id="articles" class="mb-10">
+      <h2 class="text-3xl font-bold mb-6">My Medium Articles</h2>
+      <div
+        id="medium-articles"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+      >
+        <!-- Cards will be loaded here dynamically -->
+      </div>
+    </section>
+
+    <script>
+      async function loadMediumArticles() {
+        try {
+          const username = "Jimmybillz"; // replace with your Medium username
+          const response = await fetch(
+            `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@${username}`
+          );
+
+          if (!response.ok) throw new Error("Failed to fetch Medium articles");
+
+          const data = await response.json();
+          const container = document.getElementById("medium-articles");
+          container.innerHTML = ""; // clear any placeholder
+
+          data.items.slice(0, 5).forEach((item) => {
+            const card = document.createElement("div");
+            card.className =
+              "bg-gray-800 p-5 rounded-xl shadow hover:shadow-lg transition duration-300";
+
+            card.innerHTML = `
+        <h3 class="text-xl font-semibold mb-2">${item.title}</h3>
+        <p class="text-gray-300 mb-4">${item.description
+          .replace(/<[^>]+>/g, "")
+          .substring(0, 120)}...</p>
+        <a href="${
+          item.link
+        }" target="_blank" class="text-blue-400 font-medium hover:underline">Read More</a>
+      `;
+
+            container.appendChild(card);
+          });
+        } catch (error) {
+          console.error(error);
+          document.getElementById("medium-articles").innerHTML =
+            "<p>Unable to load articles at the moment.</p>";
+        }
+      }
+
+      loadMediumArticles();
+    </script>
+
     <!-- Contact -->
     <section id="contact" class="py-20 px-6 text-center">
       <h3 class="text-3xl font-bold mb-6">Contact</h3>
